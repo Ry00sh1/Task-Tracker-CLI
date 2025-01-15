@@ -1,7 +1,7 @@
 # todo_cli/main.py
 
 from argparse import ArgumentParser
-from todo_cli.tasks import add_task, delete_task, list_tasks, mark_done, mark_in_progress
+from task_tracker_cli.tasks import add_task, delete_task, list_tasks, mark_done, mark_in_progress
 
 def main() -> None:
     parser = ArgumentParser(description= "CLI ToDo App.")

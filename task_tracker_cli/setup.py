@@ -8,7 +8,7 @@ setup(
     install_requires=["tabulate"],
     entry_points={
         "console_scripts": [
-            "todo-cli = todo_cli.main:main",
+            "todo-cli = task_tracker_cli.main:main",
         ],
     },
 )
