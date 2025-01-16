@@ -10,7 +10,7 @@ To know more, visit <a href="https://roadmap.sh/projects/task-tracker"> Task Tra
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/Task-Tracker-CLI.git
+git clone https://github.com/Ry00sh1/Task-Tracker-CLI.git
 cd Task-Tracker-CLI
 ```
 
@@ -37,7 +37,7 @@ pip install todo-cli
 
 - Add a task:
 ```bash
-todo-cli add "Go to the store"
+todo-cli add "Go to the mall"
 ```
 
 - List all tasks:
