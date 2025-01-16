@@ -6,18 +6,18 @@ from tabulate import tabulate
 
 TASKS_FILE_PATH = './tasks.json'
 
-def load_file():
+def load_file() -> None:
     try:
         with open(TASKS_FILE_PATH,'r') as file:
             return json.load(file)
     except FileNotFoundError:
         return []
 
-def save_file(tasks):
+def save_file(tasks) -> None:
     with open(TASKS_FILE_PATH, 'w') as file:
         json.dump(tasks,file,indent=4)
     
-def get_next_id():
+def get_next_id() -> int:
     tasks = load_file()
     ids = {task["id"] for task in tasks}
     id = 1
@@ -25,7 +25,7 @@ def get_next_id():
         id+=1
     return id
 
-def add_task(description):
+def add_task(description) -> None:
     tasks = load_file()
     id = get_next_id()
 
@@ -44,7 +44,7 @@ def add_task(description):
     finally:
         print(f"Task added successfully with id = {id}")
 
-def list_tasks(status = None):
+def list_tasks(status = None) -> None:
     tasks = load_file()
     if len(tasks) < 1:
         print("There are no tasks yet.")
@@ -59,7 +59,7 @@ def list_tasks(status = None):
     print(tabulate(rows, headers=headers, tablefmt="simple"))
 
 
-def delete_task(task_id):
+def delete_task(task_id) -> None:
     tasks = load_file()
     tasks = [task for task in tasks if task["id"] != task_id]
 
@@ -70,7 +70,7 @@ def delete_task(task_id):
     finally:
         print(f"Task {task_id} deleted successfully")
 
-def mark_in_progress(task_id):
+def mark_in_progress(task_id) -> None:
     tasks = load_file()
     task = next((task for task in tasks if task["id"] == task_id), None)
     if task:
@@ -81,7 +81,7 @@ def mark_in_progress(task_id):
     else:
         print(f"Task {task_id} not found.")
 
-def mark_done(task_id):
+def mark_done(task_id) -> None:
     tasks = load_file()
     task = next((task for task in tasks if task["id"] == task_id), None)
     if task:
